@@ -10,6 +10,15 @@ export function fetchUserByEmail(db, email) {
     })
 }
 
+export function fetchUsers(db){
+    return new Promise((resolve, reject) => {
+        const stmt = db.prepare('SELECT * FROM users')
+        stmt.all([], (err, data) => {
+            const p = err ? err : data;
+            (err ? reject : resolve)(p)
+        })
+    })}
+
 export function createUser(db, { email, firstname, lastname, password }) {
     return new Promise(async (resolve, reject) => {
         const pass = await hash(password, 10)

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Editor</title>
+</head>
+<body>
+    <form action="/note/new" method="post">
+        <div>
+            <label for="title">Title</label>
+            <input name="title" type="text" placeholder="Title..." value="<%= note.title || '' %>">
+        </div>
+        <div>
+            <label for="content">Content</label>
+            <textarea name="content" placeholder="Content..."><%= note.content || '' %></textarea>
+        </div>
+        <div>
+            <input name="id" type="hidden" value="<%= note.id || '' %>">
+        </div>
+        <div>
+            <button type="submit" name="submit">Submit</button>
+        </div>
+    </form>
+    <form action="/note/delete" method="post">
+        <input name="id" type="hidden" value="<%= note.id%>">
+        <button type="submit" name="submit">Delete</button>
+    </form>
+</body>
+</html>

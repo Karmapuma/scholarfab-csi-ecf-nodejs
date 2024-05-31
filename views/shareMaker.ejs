@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="/share/new" method="post">
+            <div>
+                <p>Vous voulez partager la note :</p>
+                <select name="content" >
+                    <% for(let note of notes) { %>
+                        <option value="<%= note.id %>"><%= note.title %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div>
+                <p>Avec :</p>
+                <select name="target">
+                    <% for(let user of users) {%>
+                        <option value="<%= user.id %>"><%= user.firstname %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div>
+                <p>En :</p>
+                <select name="permission">
+                    <option value="ro">Lecture</option>
+                    <option value="rw">Ecriture</option>
+                </select> 
+            </div>
+            <div>
+            
+            <button type="submit">GO !</button>
+        </div>
+        </form>
+        <a href="/">Retour</a>
+    </div>
+</body>
+</html>

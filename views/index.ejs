@@ -7,6 +7,28 @@
 </head>
 <body>
     <h1>Bonjour <%= user ? `${user.firstname}` : '' %> !</h1>
+    <a href="/note">Note</a>
+    <a href="/share">Share</a>
+    <p> Your notes: </p>
+    <ul>
+        <% for(let note of notes) { %>
+            <li><a href="/note/<%= note.id %>"><%= note.title %></a></li>
+        <% } %>
+    </ul>
+    <p> Shared with you:</p>
+    <ul>
+        <% for(let share of shares) { %>
+            <li><a href="/note/<%= share.id %>"><%= share.title %></a></li>
+        <% } %>
+    </ul>
+
+
+
+
+
+
+
+
     <p>
         <% if(user) { %>
             <a href="/logout">Logout</a>

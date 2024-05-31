@@ -11,6 +11,8 @@ import { loadHomeController } from './controllers/home.controller.mjs'
 import { loadRegistrationController } from './controllers/registration.controller.mjs'
 import { loadSecurityController } from './controllers/security.controller.mjs'
 import { loadApplicationController } from './controllers/application.controller.mjs'
+import { loadNoteController } from './controllers/note.controller.mjs'
+import { loadShareController } from './controllers/share.controller.mjs'
 
 import { getDatabase } from './services/database.service.mjs'
 import { KeyStore } from './services/keystore.service.mjs'
@@ -56,6 +58,8 @@ export async function createApplication({ __rootdir }) {
     loadRegistrationController(app)
     loadSecurityController(app)
     loadApplicationController(app)
+    loadNoteController(app)
+    loadShareController(app)
 
     return app
 }
